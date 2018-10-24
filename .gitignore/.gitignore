@@ -1,0 +1,129 @@
+/**
+ * 
+ */
+/**
+ * @author Daytona Dayne
+ *
+ */
+package car;
+
+public class Car {
+	
+	// Data types (Primitive types value types) and Camel Casing
+	int maxSpeed = 100;
+	int minSpeed = 0;
+	
+	double weight = 4079;
+	
+	boolean isTheCarOn = false;
+	char condition = 'A';
+	String nameOfCar = "Jojo";
+	
+	double maxFuel = 16;
+	double currentFuel = 8;
+	double mpg = 26.4;
+	
+	int numberOfPeopleInCar = 1;
+	int maxNumberOfPeopleInCar = 6;
+	
+	public Car() {
+		
+	}
+	
+	public Car(int customMaxSpeed, double customWeight, boolean customIsTheCarOn, double customMpg) {
+		maxSpeed = customMaxSpeed;
+		weight = customWeight;
+		isTheCarOn = customIsTheCarOn;
+		mpg = customMpg;
+	}
+	
+	
+	public void printVariables() {
+		System.out.println("This is the max speed " + maxSpeed);
+		System.out.println(minSpeed);
+		System.out.println(weight);
+		System.out.println(isTheCarOn);
+		System.out.println(condition);
+		System.out.println(nameOfCar);
+		System.out.println(numberOfPeopleInCar);
+		System.out.println(maxFuel);
+		System.out.println(currentFuel);
+		System.out.println(mpg);
+		}
+	
+	public void wreckedCar() {
+		condition = 'C';
+	}
+	
+	public void upgradeMinSpeed() {
+		minSpeed = maxSpeed;
+		maxSpeed += 1;
+	}
+	
+	public void getIn() {
+		//numberOfPeopleInCar = numberOfPeopleInCar + 1
+		//if there aren't to many people in the car
+		if (numberOfPeopleInCar < maxNumberOfPeopleInCar) {
+			//then someone can get in
+		    numberOfPeopleInCar++;
+		    System.out.println("Someone got in");
+		} else {
+			//otherwise print out the car is full
+			System.out.println("The car is full! " + numberOfPeopleInCar + " = " + maxNumberOfPeopleInCar);
+		}
+	}
+	
+	public void getOut() {
+		//numberOfPeopleInCar == numberOfPeopleInCar - 1;
+		//If there's people in the car
+		if (numberOfPeopleInCar > 0) {
+			//then tell one person to get out
+			numberOfPeopleInCar--;
+		} else {
+			//otherwise no one can get out
+			System.out.println("No one is in the car " + numberOfPeopleInCar);
+		}
+	}
+	
+	public double howManyMilesTillOutOfGas() {
+		return currentFuel * mpg;
+	}
+	
+	public double maxMilesPerFillUp() {
+		return maxFuel * mpg;
+	}
+	
+	public void turnCarOn() {
+		// If the car isn't on
+		if(!isTheCarOn) {
+			//turn it on
+			isTheCarOn = true;
+		} else {
+			//otherwise the car is on
+			System.out.println("The Car is already on " + isTheCarOn);
+		}
+	}
+	
+	public static void main(String[] args) {
+		
+		Car tommyCar = new Car();
+		tommyCar.getOut();
+		tommyCar.getOut();
+		tommyCar.getIn();
+		tommyCar.getIn();
+		tommyCar.getIn();
+		tommyCar.getIn();
+		tommyCar.getIn();
+		tommyCar.getIn();
+		tommyCar.getIn();
+		tommyCar.turnCarOn();
+		tommyCar.turnCarOn();
+		
+		
+	/*	System.out.println("Christmas Car");
+		Car christmasPresent = new Car(350, 5400, false, 30.9);
+		christmasPresent.printVariables();*/
+		
+		
+	}
+}
